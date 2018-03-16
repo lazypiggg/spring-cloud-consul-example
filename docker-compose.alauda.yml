@@ -1,5 +1,5 @@
 zipkin:
-  image: openzipkin/zipkin
+  image: openzipkin/zipkin:1
   ports:
     - "nginx-10-11-0-7:9411:9411/tcp"
   net: flannel
@@ -7,7 +7,7 @@ zipkin:
   alauda_lb: ALB
 
 consul:
-  image: consul
+  image: consul:0.9.3
   ports:
     - "nginx-10-11-0-7:8400:8400/tcp"
     - "nginx-10-11-0-7:8500:8500/tcp"

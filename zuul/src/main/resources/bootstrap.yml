@@ -8,7 +8,7 @@ spring:
     consul:
       discovery:
         prefer-ip-address: true
-      host: 127.0.0.1
+      host: consul
       port: 8500
   sleuth:
       sampler:

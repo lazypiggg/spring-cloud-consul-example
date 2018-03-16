@@ -7,7 +7,7 @@ spring:
   cloud:
     consul:
       discovery:
-        prefer-ip-address: true
+        prefer-ip-address: false
       host: 127.0.0.1
       port: 8500
   boot.admin.discovery:

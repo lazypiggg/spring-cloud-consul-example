@@ -36,7 +36,7 @@ service-a:
   size: L
 
 admin-dashboard:
-  image:  spring-cloud-consul-example/admin-dashboard
+  image:  10.11.0.8:5000/spring-cloud-consul-example-admin-dashboard
   ports:
     - "nginx-10-11-0-7:8040:8040/tcp"
   links:
@@ -50,7 +50,7 @@ admin-dashboard:
   alauda_lb: ALB
 
 zuul:
-  image:  spring-cloud-consul-example/zuul
+  image:  10.11.0.8:5000/spring-cloud-consul-example-zuul
   ports:
     - "nginx-10-11-0-7:8060:8060/tcp"
   links:
@@ -62,7 +62,7 @@ zuul:
   alauda_lb: ALB
 
 hystrix-dashboard:
-  image:  spring-cloud-consul-example/hystrix-dashboard
+  image:  10.11.0.8:5000/spring-cloud-consul-example-hystrix-dashboard
   ports:
     - "nginx-10-11-0-7:8050:8050/tcp"
   links:

@@ -8,7 +8,7 @@ spring:
     consul:
       discovery:
         prefer-ip-address: true
-      host: 127.0.0.1
+      host: consul
       port: 8500
       config:
         enabled: true
@@ -17,6 +17,8 @@ spring:
   sleuth:
     sampler:
       percentage: 1
+  zipkin:
+    base-url: http://zipkin:9411/
 ---
 server:
   port: 8080

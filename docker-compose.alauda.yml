@@ -22,8 +22,11 @@ service-b:
     - "consul:consul"
     - "hystrix-dashboard:hystrix-dashboard"
     - "zipkin:zipkin"
+  ports:
+    - "nginx-10-11-0-7:8082:8080/tcp"
   net: flannel
   size: L
+  alauda_lb: ALB
 
 service-a:
   image:  10.11.0.8:5000/spring-cloud-consul-example-service-a
@@ -32,8 +35,11 @@ service-a:
     - "service-b:service-b"
     - "hystrix-dashboard:hystrix-dashboard"
     - "zipkin:zipkin"
+  ports:
+    - "nginx-10-11-0-7:8081:8080/tcp"
   net: flannel
   size: L
+  alauda_lb: ALB
 
 admin-dashboard:
   image:  10.11.0.8:5000/spring-cloud-consul-example-admin-dashboard

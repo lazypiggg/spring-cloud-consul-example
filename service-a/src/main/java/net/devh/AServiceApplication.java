@@ -20,9 +20,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import static springfox.documentation.builders.RequestHandlerSelectors.withClassAnnotation;
 
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Collection;
 
 /**
  * User: Michael

@@ -29,3 +29,7 @@ spring:
       port: 8500
   boot.admin.discovery:
     ignored-services: consul
+
+management:
+  security:
+    enabled: false

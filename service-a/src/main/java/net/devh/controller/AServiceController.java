@@ -44,7 +44,7 @@ public class AServiceController {
         
         if (list != null && list.size() > 0) {
             ServiceInstance serviceInstance = list.get(0);
-            return serviceInstance.getServiceId() + " (" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + ")" + "===>name:" + name + "<br/>" + serviceBClient.printServiceB();
+            return serviceInstance.getServiceId() + " (" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + ")" + "===>name: " + name + "<br/>" + serviceBClient.printServiceB();
  
         }
 

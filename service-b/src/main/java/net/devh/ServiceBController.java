@@ -39,7 +39,7 @@ public class ServiceBController {
         
         if (list != null && list.size() > 0) {
             ServiceInstance serviceInstance = list.get(0);
-            return serviceInstance.getServiceId() + " (" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + ")" + "===>Say " + msg;
+            return serviceInstance.getServiceId() + " (" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + ")" + "===>Say: " + msg;
  
         }
 

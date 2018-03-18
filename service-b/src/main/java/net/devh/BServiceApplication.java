@@ -1,5 +1,9 @@
 package net.devh;
 
+import static springfox.documentation.builders.RequestHandlerSelectors.withClassAnnotation;
+
+import java.util.ArrayList;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -8,12 +12,11 @@ import org.springframework.context.annotation.Bean;
 import io.swagger.annotations.Api;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
+import springfox.documentation.service.VendorExtension;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.ApiSelectorBuilder;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
-import static springfox.documentation.builders.RequestHandlerSelectors.withClassAnnotation;
 
 /**
  * User: Michael
@@ -34,7 +37,7 @@ public class BServiceApplication {
                 .pathMapping("/")
                 .useDefaultResponseMessages(false)
                 .apiInfo(new ApiInfo("Service B API Doc", "Service B API Doc", "1.0", "https://github.com/wangzheng422/spring-cloud-consul-example",
-                        new Contact("George", "https://github.com/wangzheng422", "wangzheng422@gmail.com"), null, null, null))
+                        new Contact("George", "https://github.com/wangzheng422", "wangzheng422@gmail.com"), "", "", new ArrayList<VendorExtension>()))
                 .forCodeGeneration(true);
     }
 

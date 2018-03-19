@@ -25,7 +25,7 @@ public class HystrixWrappedServiceBClient implements ServiceBClient {
                 @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "500"),
                 @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
                 @HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests", value = "1"),
-                @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
+                @HystrixProperty(name = "execution.isolation.strategy", value = "SEMAPHORE"),
                 @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
                 @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "5000")
             },

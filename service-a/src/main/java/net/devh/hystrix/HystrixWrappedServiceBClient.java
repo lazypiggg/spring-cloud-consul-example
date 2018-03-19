@@ -24,11 +24,14 @@ public class HystrixWrappedServiceBClient implements ServiceBClient {
             commandProperties = {
                 @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "500"),
                 @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
+                @HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests", value = "1"),
+                @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
+                @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
                 @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "5000")
             },
             threadPoolProperties = {
-                    @HystrixProperty(name = "coreSize", value = "30"),
-                    @HystrixProperty(name = "maxQueueSize", value = "101"),
+                    @HystrixProperty(name = "coreSize", value = "5"),
+                    @HystrixProperty(name = "maxQueueSize", value = "10"),
                     @HystrixProperty(name = "keepAliveTimeMinutes", value = "2"),
                     @HystrixProperty(name = "queueSizeRejectionThreshold", value = "15"),
                     @HystrixProperty(name = "metrics.rollingStats.numBuckets", value = "10"),

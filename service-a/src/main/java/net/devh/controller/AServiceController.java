@@ -10,6 +10,7 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.serviceregistry.Registration;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.cloud.sleuth.Tracer;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +29,9 @@ public class AServiceController {
 
     @Autowired
     private Registration registration;       // 服务注册
+
+    @Autowired
+    private Tracer tracer;
     
     @Value("${name:unknown}")
     private String name;
@@ -44,7 +48,7 @@ public class AServiceController {
         
         if (list != null && list.size() > 0) {
             ServiceInstance serviceInstance = list.get(0);
-            return serviceInstance.getServiceId() + " (" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + ")" + "===>name: " + name + "<br/>" + serviceBClient.printServiceB();
+            return tracer.getCurrentSpan().traceIdString() + " :<br/>" + serviceInstance.getServiceId() + " (" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + ")" + "===>name: " + name + "<br/>" + serviceBClient.printServiceB();
  
         }
 

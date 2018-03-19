@@ -49,7 +49,7 @@ public class BServiceApplication {
     @Bean
 	UiConfiguration uiConfig() {
 		       
-        return UiConfigurationBuilder.builder().validatorUrl(null).build();
+        return UiConfigurationBuilder.builder().validatorUrl("").build();
 	}
 
     public static void main(String[] args) {

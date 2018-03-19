@@ -55,7 +55,7 @@ public class AServiceApplication {
     @Bean
 	UiConfiguration uiConfig() {
 		       
-        return UiConfigurationBuilder.builder().validatorUrl(null).build();
+        return UiConfigurationBuilder.builder().validatorUrl("").build();
 	}
 
 

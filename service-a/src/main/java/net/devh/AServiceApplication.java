@@ -37,14 +37,7 @@ public class AServiceApplication {
 
         ApiSelectorBuilder apiSelectorBuilder = new Docket(DocumentationType.SWAGGER_2).select();
         apiSelectorBuilder.apis(withClassAnnotation(Api.class));
-        // return apiSelectorBuilder
-        //         .build()
-        //         .pathMapping("/")
-        //         .useDefaultResponseMessages(false)
-        //         .apiInfo(new ApiInfo("Service A API Doc", "Service A API Doc", "1.0", "https://github.com/wangzheng422/spring-cloud-consul-example",
-        //                 new Contact("George", "https://github.com/wangzheng422", "wangzheng422@gmail.com"), "", "", new ArrayList<VendorExtension>()))
-        //         .forCodeGeneration(true);
-
+        
         return apiSelectorBuilder
                 .build()
                 .pathMapping("/")

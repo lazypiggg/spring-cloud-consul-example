@@ -48,7 +48,7 @@ public class AServiceController {
         
         if (list != null && list.size() > 0) {
             ServiceInstance serviceInstance = list.get(0);
-            return tracer.getCurrentSpan().traceIdString() + " :<br/>" + serviceInstance.getServiceId() + " (" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + ")" + "===>name: " + name + "<br/>" + serviceBClient.printServiceB();
+            return "zipkin traceid: " + tracer.getCurrentSpan().traceIdString() + " :<br/>" + serviceInstance.getServiceId() + " (" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + ")" + "===>name: " + name + "<br/>" + serviceBClient.printServiceB();
  
         }
 

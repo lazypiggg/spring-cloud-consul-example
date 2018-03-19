@@ -1,5 +1,5 @@
 zipkin:
-  image: openzipkin/zipkin:2
+  image: openzipkin/zipkin:2.6
   ports:
     - "nginx-10-11-0-7:9411:9411/tcp"
   net: flannel

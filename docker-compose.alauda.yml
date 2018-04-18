@@ -1,7 +1,7 @@
 zipkin:
   image: openzipkin/zipkin:2
   ports:
-    - "nginx-10-11-0-7:9411:9411/tcp"
+    - "{{NGINX}}:9411:9411/tcp"
   net: flannel
   size: L
   alauda_lb: ALB
@@ -9,42 +9,42 @@ zipkin:
 consul:
   image: consul:1.0.6
   ports:
-    - "nginx-10-11-0-7:8400:8400/tcp"
-    - "nginx-10-11-0-7:8500:8500/tcp"
-    - "nginx-10-11-0-7:8600:8600/tcp"
+    - "{{NGINX}}:8400:8400/tcp"
+    - "{{NGINX}}:8500:8500/tcp"
+    - "{{NGINX}}:8600:8600/tcp"
   net: flannel
   size: L
   alauda_lb: ALB
 
 service-b:
-  image:  10.11.0.8:5000/spring-cloud-consul-example-service-b
+  image:  {{REGISTRY}}/spring-cloud-consul-example-service-b
   links:
     - "consul:consul"
     - "hystrix-dashboard:hystrix-dashboard"
     - "zipkin:zipkin"
   ports:
-    - "nginx-10-11-0-7:18082:8071/tcp"
+    - "{{NGINX}}:18082:8071/tcp"
   net: flannel
   size: L
   alauda_lb: ALB
 
 service-a:
-  image:  10.11.0.8:5000/spring-cloud-consul-example-service-a
+  image:  {{REGISTRY}}/spring-cloud-consul-example-service-a
   links:
     - "consul:consul"
     - "service-b:service-b"
     - "hystrix-dashboard:hystrix-dashboard"
     - "zipkin:zipkin"
   ports:
-    - "nginx-10-11-0-7:18081:8080/tcp"
+    - "{{NGINX}}:18081:8080/tcp"
   net: flannel
   size: L
   alauda_lb: ALB
 
 admin-dashboard:
-  image:  10.11.0.8:5000/spring-cloud-consul-example-admin-dashboard
+  image:  {{REGISTRY}}/spring-cloud-consul-example-admin-dashboard
   ports:
-    - "nginx-10-11-0-7:8040:8040/tcp"
+    - "{{NGINX}}:8040:8040/tcp"
   links:
     - "service-a:service-a"
     - "service-b:service-b"
@@ -56,9 +56,9 @@ admin-dashboard:
   alauda_lb: ALB
 
 zuul:
-  image:  10.11.0.8:5000/spring-cloud-consul-example-zuul
+  image:  {{REGISTRY}}/spring-cloud-consul-example-zuul
   ports:
-    - "nginx-10-11-0-7:8060:8060/tcp"
+    - "{{NGINX}}:8060:8060/tcp"
   links:
     - "consul:consul"
     - "service-a:service-a"
@@ -68,9 +68,9 @@ zuul:
   alauda_lb: ALB
 
 hystrix-dashboard:
-  image:  10.11.0.8:5000/spring-cloud-consul-example-hystrix-dashboard
+  image:  {{REGISTRY}}/spring-cloud-consul-example-hystrix-dashboard
   ports:
-    - "nginx-10-11-0-7:8050:8050/tcp"
+    - "{{NGINX}}:8050:8050/tcp"
   links:
     - "consul:consul"
   net: flannel
